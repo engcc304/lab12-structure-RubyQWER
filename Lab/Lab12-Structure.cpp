@@ -88,10 +88,70 @@
 */
 
 #include <stdio.h>
+    struct Student {
+        char Name[20] ;
+        char ID[5] ;
+        float ScoreSub1 ;
+        float ScoreSub2 ;
+        float ScoreSub3 ;
+        float ScoreSub4 ;
+        float ScoreSub5 ;
+    } typedef S ;
 
-int main() {
+    void grads(int grad) {
+        printf (" ") ;
+        if ( grad >= 85) printf ( "A+" ) ;
+        else if ( grad >= 80 && grad <= 84 ) printf (" A") ;
+        else if ( grad >= 75 && grad <= 79 ) printf ("B+") ;
+        else if ( grad >= 70 && grad <= 74 ) printf (" B") ;
+        else if ( grad >= 65 && grad <= 69 ) printf ("C+") ;
+        else if ( grad >= 60 && grad <= 64 ) printf (" C") ;
+        else if ( grad >= 55 && grad <= 59 ) printf ("D+") ;
+        else if ( grad >= 50 && grad <= 59 ) printf (" D") ;
+        else printf ( "F" ) ;
+    }  
+    int main() {
+    struct Student CPE[3] ;
 
-    //--| YOUR CODE HERE
+    for  (int i = 0 ; i < 3 ; i++ ) {
+        printf ( "Student %d:\n" , i+1 ) ;
+        printf ( "Name [%d] : \n", i+1 ) ; 
+        scanf ( "%s" , CPE[i] . Name ) ;
+        printf ( "ID [%d] : \n " , i+1 ) ; 
+        scanf ( "%s", CPE[i] . ID ) ;
+        printf ( "Scores in Subject 1 :\n " ) ; 
+        scanf ( "%f", &CPE[i] . ScoreSub1 ) ;
+        printf ( "Scores in Subject 2 :\n " ) ; 
+        scanf ( "%f", &CPE[i] . ScoreSub2 ) ;
+        printf ( "Scores in Subject 3 :\n " ) ; 
+        scanf ( "%f", &CPE[i] . ScoreSub3 ) ;
+        printf ( "Scores in Subject 4 :\n " ) ; 
+        scanf ( "%f", &CPE[i] . ScoreSub4 ) ;
+        printf ("Scores in Subject 5 :\n " ) ; 
+        scanf ( "%f", &CPE[i] . ScoreSub5 ) ;
+    }//end for 
+
+
+    printf ( "Output:\n" ) ;
+    printf ( "Student Details:\n" ) ;
+
+    for (int n = 0 ; n < 3 ; n++ ) {
+
+        printf ( "\nStuden %d : " , n+1 ) ;
+        printf ( "Name : %s\n", CPE[n].Name  ) ;
+        printf ( "ID : %s\n", CPE[n].ID  ) ;
+        printf ( "Score : %.0f %.0f %.0f %.0f %.0f", CPE[n]. ScoreSub1, CPE[n]. ScoreSub2, CPE[n]. ScoreSub3, CPE[n]. ScoreSub4, CPE[n]. ScoreSub5   ) ;
+        printf ( "\nGrades : " ) ;
+        grads ( CPE[n]. ScoreSub1 ) ;
+        grads ( CPE[n]. ScoreSub2 ) ;
+        grads ( CPE[n]. ScoreSub3 ) ;
+        grads ( CPE[n]. ScoreSub4 ) ;
+        grads ( CPE[n]. ScoreSub5 ) ;
+        printf ("\nAverage Scores: " ) ;
+        float AV = CPE[n]. ScoreSub1 + CPE[n]. ScoreSub2 + CPE[n]. ScoreSub3 + CPE[n]. ScoreSub4 + CPE[n]. ScoreSub5 ; 
+        printf ("%.1f",AV/5 ) ;
+  
+    }//end for
 
     return 0 ;
 }//end main function
